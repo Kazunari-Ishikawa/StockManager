@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <Header />
-    <ExampleComponent />
+    <v-main>
+      <ExampleComponent />
+    </v-main>
   </v-app>
 </template>
 
