@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<example-component></example-component>
+<v-app>
+  <example-component></example-component>
+</v-app>
 
 @endsection
