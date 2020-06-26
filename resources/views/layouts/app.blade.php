@@ -21,9 +21,11 @@
 </head>
 <body>
   <div id="app">
-    <main id="main">
-      @yield('content')
-    </main>
+    <v-app>
+      <main id="main">
+        @yield('content')
+      </main>
+    </v-app>
   </div>
 </body>
 </html>
