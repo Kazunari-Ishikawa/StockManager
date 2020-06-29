@@ -11,11 +11,22 @@
         </v-card>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col>
+        <Stock />
+        <Stock />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
+import Stock from "./Stock";
+
 export default {
+  components: {
+    Stock
+  },
   mounted() {
     console.log("Component mounted.");
   }
