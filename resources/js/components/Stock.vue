@@ -4,6 +4,9 @@
       <img src alt />
     </a>
     <div class="body">
+      <ul class="category">
+        <v-chip label small color="cyan">あとで見る</v-chip>
+      </ul>
       <div class="head">
         <a href>Test taro</a>が2020/5/15に投稿
       </div>
@@ -11,9 +14,15 @@
         <a href>2年目プログラマがQiitaに週一投稿して1年が過ぎました</a>
       </div>
       <ul class="tagList">
-        <li class="tagItem">JavaScript</li>
-        <li class="tagItem">非同期処理</li>
-        <li class="tagItem">promise</li>
+        <li class="tagItem">
+          <a href class="tagLabel">JavaScript</a>
+        </li>
+        <li class="tagItem">
+          <a href class="tagLabel">promise</a>
+        </li>
+        <li class="tagItem">
+          <a href class="tagLabel">非同期処理</a>
+        </li>
       </ul>
     </div>
     <ul class="status">
@@ -46,6 +55,12 @@ img {
 .body {
   flex: 1 1;
 }
+.category {
+  display: inline-flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+  align-items: center;
+}
 .subject {
   display: block;
   margin-bottom: 5px;
@@ -60,11 +75,23 @@ img {
 .tagItem {
   display: flex;
   cursor: pointer;
-  padding: 0.2em 0.6em;
-  margin: 5px;
+  padding: 2px 8px;
+  margin: 0 10px 5px 5px;
+  line-height: 1;
   background: #e0e0e0;
   border-radius: 4px;
   border-left-style: none;
+}
+.tagItem::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  margin-left: -12px;
+  background: #e0e0e0;
+  transform: rotate(45deg);
+}
+.tagLabel {
+  z-index: 1;
 }
 .status {
   font-size: 12px;

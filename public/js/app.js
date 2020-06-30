@@ -6509,7 +6509,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\narticle[data-v-1debf4bb] {\n  display: flex;\n  padding: 10px;\n  font-size: 12px;\n  border-bottom: 1px solid #ddd;\n}\n.image[data-v-1debf4bb] {\n  width: 48px;\n  height: 48px;\n  margin-right: 1em;\n}\nimg[data-v-1debf4bb] {\n  width: 100%;\n  height: 100%;\n  vertical-align: middle;\n}\n.body[data-v-1debf4bb] {\n  flex: 1 1;\n}\n.subject[data-v-1debf4bb] {\n  display: block;\n  margin-bottom: 5px;\n  font-size: 16px;\n}\n.tagList[data-v-1debf4bb] {\n  align-items: center;\n  display: inline-flex;\n  flex-wrap: wrap;\n  font-size: 12px;\n}\n.tagItem[data-v-1debf4bb] {\n  display: flex;\n  cursor: pointer;\n  padding: 0.2em 0.6em;\n  margin: 0 1em 0.5em 0.5em;\n  background: #e0e0e0;\n  border-radius: 0.2em;\n  border-left-style: none;\n}\n.status[data-v-1debf4bb] {\n  font-size: 1.2em;\n}\n.comment > span[data-v-1debf4bb] {\n  color: #ccc;\n}\n", ""]);
+exports.push([module.i, "\narticle[data-v-1debf4bb] {\n  display: flex;\n  padding: 10px;\n  font-size: 12px;\n  border-bottom: 1px solid #ddd;\n}\n.image[data-v-1debf4bb] {\n  width: 48px;\n  height: 48px;\n  margin-right: 10px;\n}\nimg[data-v-1debf4bb] {\n  width: 100%;\n  height: 100%;\n  vertical-align: middle;\n}\n.body[data-v-1debf4bb] {\n  flex: 1 1;\n}\n.category[data-v-1debf4bb] {\n  display: inline-flex;\n  flex-wrap: wrap;\n  font-size: 12px;\n  align-items: center;\n}\n.subject[data-v-1debf4bb] {\n  display: block;\n  margin-bottom: 5px;\n  font-size: 16px;\n}\n.tagList[data-v-1debf4bb] {\n  align-items: center;\n  display: inline-flex;\n  flex-wrap: wrap;\n  font-size: 12px;\n}\n.tagItem[data-v-1debf4bb] {\n  display: flex;\n  cursor: pointer;\n  padding: 2px 8px;\n  margin: 0 10px 5px 5px;\n  line-height: 1;\n  background: #e0e0e0;\n  border-radius: 4px;\n  border-left-style: none;\n}\n.tagItem[data-v-1debf4bb]::before {\n  content: \"\";\n  width: 12px;\n  height: 12px;\n  margin-left: -12px;\n  background: #e0e0e0;\n  transform: rotate(45deg);\n}\n.tagLabel[data-v-1debf4bb] {\n  z-index: 1;\n}\n.status[data-v-1debf4bb] {\n  font-size: 12px;\n}\n.comment > span[data-v-1debf4bb] {\n  color: #ccc;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -38486,47 +38486,94 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("article", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "body" }, [
+      _c(
+        "ul",
+        { staticClass: "category" },
+        [
+          _c("v-chip", { attrs: { label: "", small: "", color: "cyan" } }, [
+            _vm._v("あとで見る")
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _vm._m(3)
+    ]),
+    _vm._v(" "),
+    _vm._m(4)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("article", [
-      _c("a", { staticClass: "image", attrs: { href: "" } }, [
-        _c("img", { attrs: { src: "", alt: "" } })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "body" }, [
-        _c("div", { staticClass: "head" }, [
-          _c("a", { attrs: { href: "" } }, [_vm._v("Test taro")]),
-          _vm._v("が2020/5/15に投稿\n    ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "subject" }, [
-          _c("a", { attrs: { href: "" } }, [
-            _vm._v("2年目プログラマがQiitaに週一投稿して1年が過ぎました")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("ul", { staticClass: "tagList" }, [
-          _c("li", { staticClass: "tagItem" }, [_vm._v("JavaScript")]),
-          _vm._v(" "),
-          _c("li", { staticClass: "tagItem" }, [_vm._v("非同期処理")]),
-          _vm._v(" "),
-          _c("li", { staticClass: "tagItem" }, [_vm._v("promise")])
+    return _c("a", { staticClass: "image", attrs: { href: "" } }, [
+      _c("img", { attrs: { src: "", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "head" }, [
+      _c("a", { attrs: { href: "" } }, [_vm._v("Test taro")]),
+      _vm._v("が2020/5/15に投稿\n    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "subject" }, [
+      _c("a", { attrs: { href: "" } }, [
+        _vm._v("2年目プログラマがQiitaに週一投稿して1年が過ぎました")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "tagList" }, [
+      _c("li", { staticClass: "tagItem" }, [
+        _c("a", { staticClass: "tagLabel", attrs: { href: "" } }, [
+          _vm._v("JavaScript")
         ])
       ]),
       _vm._v(" "),
-      _c("ul", { staticClass: "status" }, [
-        _c("li", [_vm._v("LGTM 100")]),
-        _vm._v(" "),
-        _c("li", { staticClass: "comment" }, [
-          _c("span", { staticClass: "far fa-comment" }),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "" } }, [_vm._v("5")])
+      _c("li", { staticClass: "tagItem" }, [
+        _c("a", { staticClass: "tagLabel", attrs: { href: "" } }, [
+          _vm._v("promise")
         ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "tagItem" }, [
+        _c("a", { staticClass: "tagLabel", attrs: { href: "" } }, [
+          _vm._v("非同期処理")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "status" }, [
+      _c("li", [_vm._v("LGTM 100")]),
+      _vm._v(" "),
+      _c("li", { staticClass: "comment" }, [
+        _c("span", { staticClass: "far fa-comment" }),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "" } }, [_vm._v("5")])
       ])
     ])
   }
