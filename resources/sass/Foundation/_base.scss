@@ -1,0 +1,49 @@
+// ====================================
+// Base
+// ====================================
+html, body {
+  background: $color_bg;
+  color: $color_default;
+  font-size: $font-size_default;
+  // font-family: $font-family_default;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-size-adjust: 100%;
+  width: 100%;
+}
+
+a {
+  color: $color_default;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $color_main;
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+input, textarea {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
