@@ -36,6 +36,6 @@ import App from './App.vue';
 const app = new Vue({
     el: '#app',
     vuetify: new Vuetify(),
-    components: { App },
-    template: `<App />`,
+    // components: { App },
+    // template: `<App />`,
 });

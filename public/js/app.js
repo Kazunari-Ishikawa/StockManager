@@ -94585,11 +94585,9 @@ Vue.use(vuetify__WEBPACK_IMPORTED_MODULE_0___default.a);
 
 var app = new Vue({
   el: '#app',
-  vuetify: new vuetify__WEBPACK_IMPORTED_MODULE_0___default.a(),
-  components: {
-    App: _App_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
-  },
-  template: "<App />"
+  vuetify: new vuetify__WEBPACK_IMPORTED_MODULE_0___default.a() // components: { App },
+  // template: `<App />`,
+
 });
 
 /***/ }),
