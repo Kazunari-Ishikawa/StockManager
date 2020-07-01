@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
+use App\User;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -52,16 +54,32 @@ class LoginController extends Controller
     /**
      * OAuth認証の結果受け取り
      *
-
      * @return \Illuminate\Http\Response
      */
     public function handleProviderCallback()
     {
         try {
             $providerUser = Socialite::driver('qiita')->user();
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return redirect('/')->with('oauth_error', '予期せぬエラーが発生しました');
         }
-        dump($providerUser);
+        $getUser = User::where([
+            'provider_id' => $providerUser->getId(),
+            ])->first();
+
+        if ($getUser) {
+            Auth::login($getUser);
+            return redirect()->route('home');
+        }
+
+        $user = new User;
+        $user->provider_id = $providerUser->getId();
+        $user->provider_name = 'qiita';
+        $user->name = $providerUser->getName();
+        $user->save();
+
+        Auth::login($user);
+
+        return redirect()->route('home');
     }
 }

@@ -5,13 +5,36 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\User;
+use Auth;
+use Socialite;
+use Mockery;
 
 class QiitaLoginTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function setUp(): void
     {
         parent::setUp();
-        $this->providerName = 'qiita';
+
+        Mockery::getConfiguration()->allowMockingNonExistentMethods(false);
+
+        // モックを作成
+        $this->user = Mockery::mock('Laravel\Socialite\Two\User');
+        $this->user->shouldReceive('getId')
+                    ->andReturn(uniqid())
+                    ->shouldReceive('getName')
+                    ->andReturn('Pseudo');
+
+        $this->provider = Mockery::mock('Laravel\Socialite\Contracts\Provider');
+        $this->provider->shouldReceive('user')->andReturn($this->user);
+    }
+
+    public static function tearDownAfterClass(): void
+    {
+        // Mockeryの設定をもとに戻す
+        Mockery::getConfiguration()->allowMockingNonExistentMethods(true);
     }
 
     /**
@@ -37,6 +60,15 @@ class QiitaLoginTest extends TestCase
      */
     public function Qiitaアカウントでユーザー登録できる()
     {
-        $this->get(route('qiitaCallback'))->assertStatus(302);
+        Socialite::shouldReceive('driver')->andReturn($this->provider);
+
+        $this->get(route('qiitaCallback'))->assertStatus(302)->assertRedirect(route('home'));
+
+        $this->assertDatabaseHas('users', [
+            'provider_id' => $this->user->getId(),
+            'provider_name' => 'qiita',
+            'name' => $this->user->getName()
+        ]);
+        $this->assertAuthenticated();
     }
 }
