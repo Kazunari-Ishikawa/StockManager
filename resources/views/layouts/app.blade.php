@@ -21,11 +21,11 @@
 </head>
 <body>
   <div id="app">
-    {{-- <v-app>
+    <v-app>
       <main id="main">
         @yield('content')
       </main>
-    </v-app> --}}
+    </v-app>
   </div>
 </body>
 </html>
