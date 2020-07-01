@@ -49,7 +49,7 @@ class LoginController extends Controller
         return Socialite::driver('qiita')->redirect();
     }
 
-        /**
+    /**
      * OAuth認証の結果受け取り
      *
 

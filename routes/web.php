@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/login/qiita', 'Auth\LoginController@redirectToProvider');
-Route::get('/login/qiita/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/login/qiita', 'Auth\LoginController@redirectToProvider')->name('qiitaLogin');
+Route::get('/login/qiita/callback', 'Auth\LoginController@handleProviderCallback')->name('qiitaCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');
