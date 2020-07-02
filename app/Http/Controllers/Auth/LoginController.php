@@ -69,7 +69,7 @@ class LoginController extends Controller
 
         if ($getUser) {
             Auth::login($getUser);
-            return redirect()->route('home');
+            return redirect('/home');
         }
 
         $user = new User;
@@ -80,6 +80,6 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('home');
+        return redirect('/home');
     }
 }

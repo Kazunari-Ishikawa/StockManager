@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
+import TopPage from './views/TopPage';
 import StockList from './views/StockList';
 import Login from './views/Login';
 
@@ -9,11 +10,15 @@ import Login from './views/Login';
 const routes = [
   {
     path: '/',
-    component: StockList
+    component: TopPage
   },
   {
     path: '/login',
     component: Login
+  },
+  {
+    path: '/home',
+    component: StockList
   }
 ];
 
