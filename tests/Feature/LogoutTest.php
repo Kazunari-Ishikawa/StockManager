@@ -24,7 +24,7 @@ class LogoutTest extends TestCase
      * @test
      * @return void
      */
-    public function shoulld_認証済みユーザーをログアウトさせる()
+    public function 認証済みユーザーをログアウトさせる()
     {
         $response = $this->actingAs($this->user)->json('POST', route('logout'));
 
