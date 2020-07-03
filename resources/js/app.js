@@ -9,8 +9,11 @@ require('./bootstrap');
 window.Vue = require('vue');
 import Vuetify from "vuetify";
 import 'vuetify/dist/vuetify.min.css';
-
 Vue.use(Vuetify);
+
+import router from './router';
+
+import App from './App.vue';
 
 /**
  * The following block of code may be used to automatically register your
@@ -31,11 +34,11 @@ Vue.use(Vuetify);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import App from './App.vue';
 
 const app = new Vue({
     el: '#app',
     vuetify: new Vuetify(),
-    // components: { App },
-    // template: `<App />`,
+    router,
+    components: { App },
+    template: `<App />`,
 });

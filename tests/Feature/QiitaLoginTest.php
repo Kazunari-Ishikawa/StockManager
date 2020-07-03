@@ -62,7 +62,7 @@ class QiitaLoginTest extends TestCase
     {
         Socialite::shouldReceive('driver')->andReturn($this->provider);
 
-        $this->get(route('qiitaCallback'))->assertStatus(302)->assertRedirect(route('home'));
+        $this->get(route('qiitaCallback'))->assertStatus(302)->assertRedirect('/home');
 
         $this->assertDatabaseHas('users', [
             'provider_id' => $this->user->getId(),

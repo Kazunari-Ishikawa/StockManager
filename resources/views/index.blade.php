@@ -24,7 +24,6 @@
 </head>
 <body>
   <div id="app">
-    <a href="/login/qiita">qiitaで登録/ログイン</a>
   </div>
 </body>
 </html>

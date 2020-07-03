@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Auth::routes();
-
 Route::get('/login/qiita', 'Auth\LoginController@redirectToProvider')->name('qiitaLogin');
 Route::get('/login/qiita/callback', 'Auth\LoginController@handleProviderCallback')->name('qiitaCallback');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/{any?}', function () {
+    return view('index');
+})->where('any', '.+');
+
+// Auth::routes();
