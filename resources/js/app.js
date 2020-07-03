@@ -12,6 +12,7 @@ import 'vuetify/dist/vuetify.min.css';
 Vue.use(Vuetify);
 
 import router from './router';
+import store from './store/index';
 
 import App from './App.vue';
 
@@ -39,6 +40,7 @@ const app = new Vue({
     el: '#app',
     vuetify: new Vuetify(),
     router,
+    store,
     components: { App },
     template: `<App />`,
 });
