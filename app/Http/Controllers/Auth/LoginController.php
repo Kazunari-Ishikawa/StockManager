@@ -69,7 +69,8 @@ class LoginController extends Controller
 
         if ($getUser) {
             Auth::login($getUser);
-            return redirect('/home');
+            return $getUser;
+            // return redirect('/home');
         }
 
         $user = new User;
@@ -80,6 +81,7 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        return redirect('/home');
+        return $user;
+        // return redirect('/home');
     }
 }
