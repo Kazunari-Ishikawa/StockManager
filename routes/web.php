@@ -23,7 +23,5 @@ Route::get('/login/qiita/callback', 'Auth\LoginController@handleProviderCallback
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('/home/{any?}', function () {
-    return view('home');
-    })->where('any', '.+');
+    Route::get('/home/{any?}', 'HomeController@index')->where('any', '.+');
 });

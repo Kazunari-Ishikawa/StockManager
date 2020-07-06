@@ -2,6 +2,6 @@
 
 @section('content')
 
-<app-component></app-component>
+<app-component :user='@json($user)'></app-component>
 
 @endsection

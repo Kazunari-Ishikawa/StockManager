@@ -1930,10 +1930,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     Header: _components_Header__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    user: Object
   }
 });
 
@@ -38987,7 +38991,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-app",
-    [_c("Header"), _vm._v(" "), _c("v-main", [_c("RouterView")], 1)],
+    [
+      _c("Header"),
+      _vm._v("\n  " + _vm._s(_vm.user) + "\n  "),
+      _c("v-main", [_c("RouterView")], 1)
+    ],
     1
   )
 }
