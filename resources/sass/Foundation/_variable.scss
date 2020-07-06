@@ -1,0 +1,70 @@
+// ==================================
+// 変数定義
+// ==================================
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+$color_bg: #f5f5f5;
+$color_default: #333;
+$color_main: #51a1a2;
+$color_sub1: #fa5858;
+$color_sub2: #707070;
+$twitter: #1DA1F2;
+
+$font-family_default: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+$font-family_em: 'Oswald', "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+$font-size_s: 12px;
+$font-size_m: 14px;
+$font-size_default: 16px;
+$font-size_l: 20px;
+$font-size_2l: 24px;
+$font-size_3l: 32px;
+$font-size_em: 40px;
+
+$space_s: 10px;
+$space_m: 15px;
+$space_default: 20px;
+$space_l: 25px;
+$space_2l: 30px;
+$space_3l: 40px;
+$space_4l: 80px;
+
+$radius_s: 4px;
+
+$height_input: 50px;
+$height_item: 40px;
+$height_header:60px;
+$height_header-sm: 40px;
+
+$site-width: 960px;
+$btn-width: 150px;
+
+$time_s: 0.3s;
+$time_m: 0.6s;
+$time_l: 1s;
+$time_xl: 3s;
+
+$breakpoints: (
+  "sm": "screen and (max-width: 576px)",
+  "md": "screen and (max-width: 768px)",
+  "lg": "screen and (max-width: 992px)",
+  "xl": "screen and (max-width: 1200px)"
+) !default;

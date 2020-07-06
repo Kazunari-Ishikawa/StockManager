@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+})->name('index');
+
+Route::get('/login/qiita', 'Auth\LoginController@redirectToProvider')->name('qiitaLogin');
+Route::get('/login/qiita/callback', 'Auth\LoginController@handleProviderCallback')->name('qiitaCallback');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/home/{any?}', 'HomeController@index')->where('any', '.+');
 });
