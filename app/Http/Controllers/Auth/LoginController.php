@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use App\User;
 use Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -44,7 +45,6 @@ class LoginController extends Controller
     /**
      * OAuth認証先にリダイレクト
      *
-     * @return \Illuminate\Http\Response
      */
     public function redirectToProvider()
     {
@@ -54,7 +54,6 @@ class LoginController extends Controller
     /**
      * OAuth認証の結果受け取り
      *
-     * @return \Illuminate\Http\Response
      */
     public function handleProviderCallback()
     {
@@ -81,5 +80,16 @@ class LoginController extends Controller
         Auth::login($user);
 
         return redirect('/home');
+    }
+
+    /**
+     * ログアウト処理
+     *
+     */
+    protected function loggedOut(Request $request)
+    {
+        $request->session()->regenerate();
+
+        return response()->json();
     }
 }

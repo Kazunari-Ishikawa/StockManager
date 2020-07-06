@@ -1,11 +1,10 @@
 <template>
   <v-sheet color="#55c500">
     <v-toolbar class="px-sm-6" flat color="#55c500" dark>
-      <v-toolbar-title>
-        <RouterLink to="/">StockManager</RouterLink>
+      <v-toolbar-title class="mr-sm-10 mr-3 stockmanager">
+        <a href="/">StockManager</a>
       </v-toolbar-title>
-
-      <SearchInput />
+      <v-toolbar-items class="username">{{user.name}}</v-toolbar-items>
 
       <v-spacer></v-spacer>
 
@@ -31,16 +30,33 @@
 </template>
 
 <script>
-import SearchInput from "./SearchInput";
 export default {
   components: {
-    SearchInput
+    // SearchInput
+  },
+  props: {
+    user: Object
   },
   methods: {
     async doLogout() {
-      // const response = await axios.post("/logout").catch(error => ({}));
-      // console.log(response);
+      const response = await axios.post("/logout").catch(error => ({}));
+      window.location.href = "/";
     }
   }
 };
 </script>
+
+<style scoped lang="scss">
+.stockmanager {
+  font-size: 28px;
+  > a {
+    color: white;
+  }
+}
+.login {
+  text-transform: none;
+}
+.username {
+  align-items: center;
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Header />
+    <Header :user="user" />
     <v-main>
       <RouterView />
     </v-main>
@@ -12,6 +12,9 @@ import Header from "./components/Header";
 export default {
   components: {
     Header
+  },
+  props: {
+    user: Object
   }
 };
 </script>
