@@ -1,9 +1,7 @@
 <template>
   <v-app>
     <Header :user="user" />
-    <v-main>
-      <RouterView />
-    </v-main>
+    <RouterView />
   </v-app>
 </template>
 
