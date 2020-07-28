@@ -1,17 +1,18 @@
 <template>
   <article>
     <a href class="image">
-      <img src alt />
+      <img :src="stock.user.profile_image_url" alt />
     </a>
     <div class="body">
       <ul class="category">
         <v-chip label small color="cyan">あとで見る</v-chip>
       </ul>
       <div class="head">
-        <a href>Test taro</a>が2020/5/15に投稿
+        <a href>{{ stock.user.id }}</a>
+        が{{ this.createDate }}に投稿
       </div>
       <div class="subject">
-        <a href>2年目プログラマがQiitaに週一投稿して1年が過ぎました</a>
+        <a href>{{ stock.title }}</a>
       </div>
       <ul class="tagList">
         <li class="tagItem">
@@ -26,14 +27,30 @@
       </ul>
     </div>
     <ul class="status">
-      <li>LGTM 100</li>
+      <li>LGTM {{ stock.likes_count }}</li>
       <li class="comment">
         <span class="far fa-comment"></span>
-        <a href>5</a>
+        <a href>{{ stock.comments_count }}</a>
       </li>
     </ul>
   </article>
 </template>
+
+<script>
+export default {
+  props: {
+    stock: Object,
+  },
+  computed: {
+    createDate() {
+      let year = this.stock.created_at.substr(0, 4);
+      let month = this.stock.created_at.substr(5, 2);
+      let day = this.stock.created_at.substr(8, 2);
+      return `${year}/${month}/${day}`;
+    },
+  },
+};
+</script>
 
 <style scoped>
 article {
@@ -65,6 +82,8 @@ img {
   display: block;
   margin-bottom: 5px;
   font-size: 16px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .tagList {
   align-items: center;
