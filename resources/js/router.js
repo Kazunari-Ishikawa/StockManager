@@ -3,12 +3,17 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import StockList from './views/StockList';
+import BookList from './views/BookList';
 
 // ルーティング
 const routes = [
   {
     path: '/home',
     component: StockList
+  },
+  {
+    path: '/home/books',
+    component: BookList
   }
 ];
 
