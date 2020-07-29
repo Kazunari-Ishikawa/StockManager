@@ -16,7 +16,7 @@
           <v-row>
             <v-col cols="12" sm="4">
               <template v-if="!isLoading">
-                <Book v-for="book in books" :key="book.id" :book="book" />
+                <Book v-for="book in books" :key="book.id" :book="book" @delete-book="deleteBook" />
               </template>
             </v-col>
           </v-row>
@@ -56,6 +56,9 @@ export default {
         this.books = response.data;
       }
       this.isLoading = false;
+    },
+    deleteBook() {
+      this.getBooks();
     },
   },
 };

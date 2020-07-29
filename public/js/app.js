@@ -1949,6 +1949,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -1964,6 +1972,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     book: Object
+  },
+  methods: {
+    destroy: function destroy() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var id, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                id = _this.book.id;
+                _context.next = 3;
+                return axios.post("/api/books/".concat(id, "/delete"))["catch"](function (error) {
+                  return error.response;
+                });
+
+              case 3:
+                response = _context.sent;
+                console.log(response);
+
+                _this.inform();
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    inform: function inform() {
+      this.$emit("delete-book");
+    }
   }
 });
 
@@ -2364,6 +2406,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    deleteBook: function deleteBook() {
+      this.getBooks();
     }
   }
 });
@@ -39509,7 +39554,11 @@ var render = function() {
         [
           _c("v-btn", { attrs: { text: "", small: "" } }, [_vm._v("EDIT")]),
           _vm._v(" "),
-          _c("v-btn", { attrs: { text: "", small: "" } }, [_vm._v("DELETE")])
+          _c(
+            "v-btn",
+            { attrs: { text: "", small: "" }, on: { click: _vm.destroy } },
+            [_vm._v("DELETE")]
+          )
         ],
         1
       )
@@ -39991,7 +40040,8 @@ var render = function() {
                             ? _vm._l(_vm.books, function(book) {
                                 return _c("Book", {
                                   key: book.id,
-                                  attrs: { book: book }
+                                  attrs: { book: book },
+                                  on: { "delete-book": _vm.deleteBook }
                                 })
                               })
                             : _vm._e()
