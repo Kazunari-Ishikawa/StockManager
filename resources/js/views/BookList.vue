@@ -7,8 +7,9 @@
           <h1>Book List</h1>
           <v-row>
             <v-col cols="12" sm="4">
-              <!-- <Book v-for="book in books" :key="book.id" :book="book" /> -->
-              <Book />
+              <template v-if="!isLoading">
+                <Book v-for="book in books" :key="book.id" :book="book" />
+              </template>
             </v-col>
           </v-row>
         </v-col>
@@ -28,12 +29,25 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       books: null,
     };
   },
+  created() {
+    this.getBooks();
+  },
   methods: {
     async getBooks() {
-      const response = await axios.get();
+      this.isLoading = true;
+      const response = await axios.get("/api/books").catch((error) => {
+        return error.response;
+      });
+      console.log(response);
+
+      if (response.status === 200) {
+        this.books = response.data;
+      }
+      this.isLoading = false;
     },
   },
 };

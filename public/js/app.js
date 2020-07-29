@@ -2207,6 +2207,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2216,24 +2217,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
+      isLoading: false,
       books: null
     };
   },
+  created: function created() {
+    this.getBooks();
+  },
   methods: {
     getBooks: function getBooks() {
+      var _this = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return axios.get();
-
-              case 2:
-                response = _context.sent;
+                _this.isLoading = true;
+                _context.next = 3;
+                return axios.get("/api/books")["catch"](function (error) {
+                  return error.response;
+                });
 
               case 3:
+                response = _context.sent;
+                console.log(response);
+
+                if (response.status === 200) {
+                  _this.books = response.data;
+                }
+
+                _this.isLoading = false;
+
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -39374,7 +39391,7 @@ var render = function() {
     "v-card",
     { staticClass: "ma-4" },
     [
-      _c("v-card-title", [_vm._v("タイトル")]),
+      _c("v-card-title", [_vm._v(_vm._s(_vm.book.name))]),
       _vm._v(" "),
       _c("v-card-subtitle", [_vm._v("3記事")]),
       _vm._v(" "),
@@ -39735,8 +39752,17 @@ var render = function() {
                       _c(
                         "v-col",
                         { attrs: { cols: "12", sm: "4" } },
-                        [_c("Book")],
-                        1
+                        [
+                          !_vm.isLoading
+                            ? _vm._l(_vm.books, function(book) {
+                                return _c("Book", {
+                                  key: book.id,
+                                  attrs: { book: book }
+                                })
+                              })
+                            : _vm._e()
+                        ],
+                        2
                       )
                     ],
                     1
