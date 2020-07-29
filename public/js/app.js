@@ -1960,6 +1960,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     book: Object
@@ -2187,14 +2188,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -39379,17 +39372,20 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-card",
+    { staticClass: "ma-4" },
     [
       _c("v-card-title", [_vm._v("タイトル")]),
+      _vm._v(" "),
+      _c("v-card-subtitle", [_vm._v("3記事")]),
       _vm._v(" "),
       _c("v-card-text", [_vm._v("注釈とか？")]),
       _vm._v(" "),
       _c(
         "v-card-actions",
         [
-          _c("v-btn", { attrs: { text: "" } }, [_vm._v("EDIT")]),
+          _c("v-btn", { attrs: { text: "", small: "" } }, [_vm._v("EDIT")]),
           _vm._v(" "),
-          _c("v-btn", { attrs: { text: "" } }, [_vm._v("DELETE")])
+          _c("v-btn", { attrs: { text: "", small: "" } }, [_vm._v("DELETE")])
         ],
         1
       )
@@ -39738,26 +39734,8 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "6", sm: "4" } },
-                        [
-                          _c("Book"),
-                          _vm._v(" "),
-                          _c("Book"),
-                          _vm._v(" "),
-                          _c("Book"),
-                          _vm._v(" "),
-                          _c("Book"),
-                          _vm._v(" "),
-                          _c("Book"),
-                          _vm._v(" "),
-                          _c("Book"),
-                          _vm._v(" "),
-                          _c("Book"),
-                          _vm._v(" "),
-                          _c("Book"),
-                          _vm._v(" "),
-                          _c("Book")
-                        ],
+                        { attrs: { cols: "12", sm: "4" } },
+                        [_c("Book")],
                         1
                       )
                     ],

@@ -1,10 +1,11 @@
 <template>
-  <v-card>
+  <v-card class="ma-4">
     <v-card-title>タイトル</v-card-title>
+    <v-card-subtitle>3記事</v-card-subtitle>
     <v-card-text>注釈とか？</v-card-text>
     <v-card-actions>
-      <v-btn text>EDIT</v-btn>
-      <v-btn text>DELETE</v-btn>
+      <v-btn text small>EDIT</v-btn>
+      <v-btn text small>DELETE</v-btn>
     </v-card-actions>
   </v-card>
 </template>
