@@ -25,4 +25,5 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/home/{any?}', 'HomeController@index')->where('any', '.+');
 
     Route::get('/api/books', 'BookController@index');
+    Route::post('/api/books/store', 'BookController@store');
 });

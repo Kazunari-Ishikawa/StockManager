@@ -4,7 +4,15 @@
       <v-row>
         <SideBar />
         <v-col cols="12" sm="9">
-          <h1>Book List</h1>
+          <v-row>
+            <v-col>
+              <h1>Book List</h1>
+            </v-col>
+            <v-spacer></v-spacer>
+            <v-col>
+              <v-btn color="primay" to="/home/books/new">NEW</v-btn>
+            </v-col>
+          </v-row>
           <v-row>
             <v-col cols="12" sm="4">
               <template v-if="!isLoading">

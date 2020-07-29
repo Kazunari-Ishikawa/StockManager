@@ -4,6 +4,7 @@ Vue.use(VueRouter);
 
 import StockList from './views/StockList';
 import BookList from './views/BookList';
+import BookCreate from './views/BookCreate';
 
 // ルーティング
 const routes = [
@@ -14,6 +15,10 @@ const routes = [
   {
     path: '/home/books',
     component: BookList
+  },
+  {
+    path: '/home/books/new',
+    component: BookCreate
   }
 ];
 

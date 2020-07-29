@@ -40,7 +40,14 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $book = new Book;
+        $user_id = Auth::id();
+
+        $book->user_id = $user_id;
+        $book->name = $request['name'];
+        $book->save();
+
+        return response(200);
     }
 
     /**
