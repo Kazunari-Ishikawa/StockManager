@@ -6,7 +6,7 @@
         <v-col cols="12" sm="9">
           <v-row>
             <v-col>
-              <h1>Book Create</h1>
+              <h1>Edit Book</h1>
             </v-col>
           </v-row>
           <v-row>
@@ -15,7 +15,7 @@
                 <v-form class="pa-4">
                   <v-text-field v-model="name" label="Book Title"></v-text-field>
 
-                  <v-btn class="mr-4" @click="submit">作成</v-btn>
+                  <v-btn class="mr-4" @click="update">変更</v-btn>
                   <v-btn @click="reset">クリア</v-btn>
                 </v-form>
               </v-card>
@@ -34,16 +34,30 @@ export default {
   components: {
     SideBar,
   },
+  props: {
+    id: Number,
+  },
   data() {
     return {
+      book: null,
       name: null,
     };
   },
-  created() {},
+  created() {
+    this.getBook();
+  },
   methods: {
-    async submit() {
+    async getBook() {
+      const id = this.id;
+      const response = await axios.get(`/api/books/${id}`);
+      console.log(response);
+      this.book = response.data;
+      this.name = this.book.name;
+    },
+    async update() {
+      const id = this.id;
       const response = await axios
-        .post("/api/books/store", {
+        .post(`/api/books/${id}/update`, {
           name: this.name,
         })
         .catch((error) => {

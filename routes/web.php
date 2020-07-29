@@ -26,5 +26,7 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('/api/books', 'BookController@index');
     Route::post('/api/books/store', 'BookController@store');
+    Route::get('/api/books/{id}', 'BookController@show');
+    Route::post('/api/books/{id}/update', 'BookController@update');
     Route::post('/api/books/{id}/delete', 'BookController@destroy');
 });

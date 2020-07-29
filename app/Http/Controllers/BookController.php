@@ -58,7 +58,9 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = Book::find($id);
+
+        return $book;
     }
 
     /**
@@ -81,7 +83,14 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $book = Book::find($id);
+
+        if ($book->name !== $request['name']){
+            $book->name = $request['name'];
+            $book->save();
+        }
+
+        return response(200);
     }
 
     /**

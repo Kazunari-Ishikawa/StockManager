@@ -4,7 +4,7 @@
     <v-card-subtitle>3記事</v-card-subtitle>
     <v-card-text>注釈とか？</v-card-text>
     <v-card-actions>
-      <v-btn text small>EDIT</v-btn>
+      <v-btn text small :to="`/home/books/${book.id}/edit`">EDIT</v-btn>
       <v-btn text small @click="destroy">DELETE</v-btn>
     </v-card-actions>
   </v-card>
