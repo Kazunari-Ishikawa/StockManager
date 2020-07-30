@@ -1,13 +1,14 @@
 <template>
   <v-col cols="12" sm="3">
     <v-card outlined>
-      <v-card-title>カテゴリ一覧</v-card-title>
-      <v-card-actions>
-        <v-btn depressed small color="primary">カテゴリ作成</v-btn>
-      </v-card-actions>
-      <v-card-actions>
-        <v-btn depressed small color="secondary">カテゴリ編集</v-btn>
-      </v-card-actions>
+      <v-list dense flat>
+        <v-subheader>MENU</v-subheader>
+        <v-list-item-group v-model="model" color="primary">
+          <v-list-item v-for="(item, i) in items" :key="i" :to="item.link">
+            <v-list-item-content v-text="item.text"></v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
       <v-divider></v-divider>
 
       <v-list>
@@ -23,3 +24,17 @@
     </v-card>
   </v-col>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      model: 1,
+      items: [
+        { text: "HOME", link: "/home" },
+        { text: "Book List", link: "/home/books" },
+      ],
+    };
+  },
+};
+</script>
