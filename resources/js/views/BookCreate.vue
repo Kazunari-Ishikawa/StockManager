@@ -43,7 +43,7 @@ export default {
   methods: {
     async submit() {
       const response = await axios
-        .post("/api/books/store", {
+        .post("/api/books", {
           name: this.name,
         })
         .catch((error) => {

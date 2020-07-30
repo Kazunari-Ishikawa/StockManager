@@ -24,9 +24,9 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/home/{any?}', 'HomeController@index')->where('any', '.+');
 
-    Route::get('/api/books', 'BookController@index');
-    Route::post('/api/books/store', 'BookController@store');
+    Route::get('/api/books', 'BookController@index')->name('books.index');
+    Route::post('/api/books', 'BookController@store')->name('books.store');
     Route::get('/api/books/{id}', 'BookController@show')->name('books.show');
-    Route::post('/api/books/{id}/update', 'BookController@update')->name('books.update');
-    Route::post('/api/books/{id}/delete', 'BookController@destroy')->name('books.destory');
+    Route::patch('/api/books/{id}', 'BookController@update')->name('books.update');
+    Route::delete('/api/books/{id}', 'BookController@destroy')->name('books.destory');
 });

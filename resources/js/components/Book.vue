@@ -19,7 +19,7 @@ export default {
     async destroy() {
       const id = this.book.id;
       const response = await axios
-        .post(`/api/books/${id}/delete`)
+        .delete(`/api/books/${id}`)
         .catch((error) => {
           return error.response;
         });

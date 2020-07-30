@@ -28,7 +28,7 @@ class BookTest extends TestCase
     {
         $books = factory(Book::class,2)->create();
 
-        $response = $this->get('/api/books');
+        $response = $this->getJson(route('books.index'));
         $response->assertOk()->assertJsonCount(2);
     }
 
@@ -38,7 +38,7 @@ class BookTest extends TestCase
             'name' => 'test book',
         ];
 
-        $response = $this->post('/api/books/store', $data);
+        $response = $this->postJson('/api/books', $data);
         $response->assertStatus(201)->assertJson($data);
 
         $this->assertDatabaseHas('books', $data);
@@ -46,36 +46,40 @@ class BookTest extends TestCase
 
     public function test_show()
     {
-        $book = factory(Book::class)->create([
+        $data = [
             'name' => 'test book',
-        ]);
+        ];
+        $book = factory(Book::class)->create($data);
 
-        $response = $this->get(route('books.show', ['id' => $book->id]));
-        $response->assertOk()->assertJson([
-            'name' => 'test book'
-        ]);
+        $response = $this->getJson(route('books.show', ['id' => $book->id]));
+        $response->assertOk()->assertJson($data);
     }
 
     public function test_update()
     {
-        $book = factory(Book::class)->create([
+        $data = [
             'name' => 'test book',
-        ]);
-        $this->assertDatabaseHas('books', ['name' => 'test book']);
+        ];
+        $book = factory(Book::class)->create($data);
+        $this->assertDatabaseHas('books', $data);
 
-        $response = $this->post(route('books.update', [
+        $updated_data = [
+            'name' => 'update name',
+        ];
+
+        $response = $this->patchJson(route('books.update', [
             'id' => $book->id,
             'name' => 'update name',
         ]));
-        $response->assertOk()->assertJson(['name' => 'update name']);
-        $this->assertDatabaseHas('books', ['name' => 'update name']);
+        $response->assertOk()->assertJson($updated_data);
+        $this->assertDatabaseHas('books', $updated_data);
     }
 
     public function test_destroy()
     {
         $book = factory(Book::class)->create();
 
-        $response= $this->post(route('books.destory', $book->id));
+        $response= $this->deleteJson(route('books.destory', $book->id));
         $response->assertOk();
 
         $this->assertDeleted($book);

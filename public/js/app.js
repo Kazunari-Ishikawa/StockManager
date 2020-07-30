@@ -1985,7 +1985,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 id = _this.book.id;
                 _context.next = 3;
-                return axios.post("/api/books/".concat(id, "/delete"))["catch"](function (error) {
+                return axios["delete"]("/api/books/".concat(id))["catch"](function (error) {
                   return error.response;
                 });
 
@@ -2280,7 +2280,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.post("/api/books/store", {
+                return axios.post("/api/books", {
                   name: _this.name
                 })["catch"](function (error) {
                   return error.response;
@@ -2292,6 +2292,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 if (response.status === 200) {
                   _this.reset();
+
+                  _this.$router.push("/home/books");
                 }
 
               case 5:
@@ -2413,7 +2415,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 id = _this2.id;
                 _context2.next = 3;
-                return axios.post("/api/books/".concat(id, "/update"), {
+                return axios.patch("/api/books/".concat(id), {
                   name: _this2.name
                 })["catch"](function (error) {
                   return error.response;

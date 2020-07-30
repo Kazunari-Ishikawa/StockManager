@@ -57,7 +57,7 @@ export default {
     async update() {
       const id = this.id;
       const response = await axios
-        .post(`/api/books/${id}/update`, {
+        .patch(`/api/books/${id}`, {
           name: this.name,
         })
         .catch((error) => {
